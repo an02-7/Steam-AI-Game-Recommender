@@ -5,12 +5,12 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 app = Flask(__name__)
 
-# تحميل البيانات والموديل
+
 try:
     df = pd.read_csv('final_games_data.csv')
     tfidf_matrix = pickle.load(open('tfidf_matrix.pkl', 'rb'))
     
-    # تنظيف البيانات لضمان البحث المرن
+    
     df.columns = df.columns.str.strip()
     for col in df.columns:
         if df[col].dtype == 'object':
